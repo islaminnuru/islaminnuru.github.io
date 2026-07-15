@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="İslam’ın Nuru destek, gizlilik ve içerik hakları bildirim sayfası">
+  <title>İslam’ın Nuru — Destek ve Hak Bildirimi</title>
+  <link rel="icon" href="assets/islamin-nuru-icon.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <img class="logo" src="assets/islamin-nuru-icon.png" alt="İslam’ın Nuru uygulama simgesi">
+    <h1>Destek ve Hak Bildirimi</h1>
+    <p>Teknik destek, gizlilik talepleri ve içerik kullanımına ilişkin bildirimler</p>
+    <nav class="nav">
+      <a href="index.html">Yasal bilgiler</a>
+      <a href="privacy-policy.html">Gizlilik politikası</a>
+      <a href="content-rights.html">İçerik hakları</a>
+    </nav>
+  </header>
+
+  <article class="card">
+    <h2>Teknik destek</h2>
+    <p>Bir hata bildirirken mümkünse cihaz modelini, iOS/Android sürümünü, uygulama sürümünü, sorunun oluştuğu ekranı ve sorunu tekrar oluşturma adımlarını yazın.</p>
+
+    <h2>Gizlilik veya veri silme talebi</h2>
+    <p>Uygulamadaki kayıtların çoğu yalnızca cihazınızda saklanır. Yerel verileri uygulamada <strong>Hakkında ve Kaynaklar → Bu cihazdaki tüm İslam’ın Nuru verilerini sil</strong> yoluyla temizleyebilirsiniz. Uygulamayı kaldırmak da yerel verileri cihazdan kaldırır.</p>
+
+    <h2>İçerik hakkı bildirimi</h2>
+    <p>Bir metin, meal, ses, görsel veya video bağlantısı hakkında hak bildirimi yaparken içeriğin uygulamadaki yerini, hak sahipliğinizi ve talep ettiğiniz işlemi açıkça belirtin.</p>
+
+    <p><a id="issue-link" class="action" href="#"><strong>GitHub üzerinden bildirim oluştur</strong>Bu sayfanın yayımlandığı GitHub deposunun Issues bölümünü açar ↗</a></p>
+    <p id="issue-help" class="small"></p>
+
+    <div class="notice"><strong>Güvenlik uyarısı:</strong> Herkese açık GitHub bildirimlerine parola, kimlik numarası, açık adres, telefon numarası, kesin konum veya çocuklara ait hassas bilgi yazmayın.</div>
+  </article>
+
+  <footer>© 2026 İslam’ın Nuru</footer>
+</main>
+<script>
+(function () {
+  const host = window.location.hostname;
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const link = document.getElementById('issue-link');
+  const help = document.getElementById('issue-help');
+  if (host.endsWith('.github.io') && pathParts.length > 0) {
+    const owner = host.replace('.github.io', '');
+    const repo = pathParts[0];
+    link.href = `https://github.com/${owner}/${repo}/issues/new`;
+    help.textContent = `Destek deposu: ${owner}/${repo}`;
+  } else {
+    link.removeAttribute('href');
+    link.style.opacity = '0.65';
+    help.textContent = 'Bu bağlantı GitHub Pages üzerinde yayınlandıktan sonra otomatik olarak etkinleşir.';
+  }
+})();
+</script>
+</body>
+</html>
